@@ -1,11 +1,16 @@
-import Header from './components/Header'
+import Header from './components/Header';
+import Body from './components/Body';
 import './App.css';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-    </div>
+    <ChakraProvider>
+      <div className="App">
+        <Header/>
+        <Body/>
+      </div>
+    </ChakraProvider>
   );
 }
 
