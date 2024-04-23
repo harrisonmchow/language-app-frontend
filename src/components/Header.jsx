@@ -5,7 +5,6 @@ import {
     Modal,
     ModalOverlay,
     ModalContent,
-    // ModalHeader,
     ModalFooter,
     ModalBody,
     ModalCloseButton,
@@ -13,6 +12,7 @@ import {
 
 const Header = () => {
     const [instructionsOpen, setInstructionsOpen] = React.useState(false);
+    const [aboutOpen, setAboutOpen] = React.useState(false);
 
     return (
     <React.Fragment>
@@ -26,7 +26,7 @@ const Header = () => {
                 </Box>
                 <Box height='80px' className='header-title'>wordplay</Box>
                 <Box height='80px' className='subheading-text'>
-                    <Button variant='ghost' className='align-with-title'>
+                    <Button variant='ghost' className='align-with-title' onClick={() => setAboutOpen(true)}>
                         About
                     </Button>
                 </Box>
@@ -37,7 +37,6 @@ const Header = () => {
         <Modal onClose={() => setInstructionsOpen(false)} isOpen={instructionsOpen} isCentered size="lg">
           <ModalOverlay />
           <ModalContent>
-            {/* <ModalHeader className='instructions-header'>How to play</ModalHeader> */}
             <div className='instructions-header'> How to play </div>
             <ModalCloseButton />
             <ModalBody className='instructions-body'>
@@ -49,6 +48,24 @@ const Header = () => {
             </ModalBody>
             <ModalFooter>
               <Button colorScheme='green' onClick={() => setInstructionsOpen(false)}>Comprehendere</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+        {/* About modal */}
+        <Modal onClose={() => setAboutOpen(false)} isOpen={aboutOpen} isCentered size="lg">
+          <ModalOverlay />
+          <ModalContent>
+            <div className='instructions-header'> About </div>
+            <ModalCloseButton />
+            <ModalBody className='instructions-body'>
+                <p>Learning a new language is always a tough task, so we're trying to make it just a bit easier.</p>
+                <br/>
+                <p>Inspired by continuous learning and trending NY Times games, we decided to provide a daily challenge that passionate linguists can complete in their day to day life.</p>
+                <br/>
+                <p style={{ fontSize: "12pt" }}>Developed by Harry and Caleb</p>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={() => setAboutOpen(false)}>Au revoir</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
