@@ -13,25 +13,18 @@ import { useToast } from '@chakra-ui/react'
 
 
 const Attempting = (props) => {
-    const [translations, setTranslations] = React.useState({
-        Afrikaans: "Bomboclaat",
-        French: "Bonjour",
-        Italian: "Si Senor"
-    });
-    // const [dailyWord, setDailyWord] = React.useState("testing");
+    const translations = props.translations;
     const dailyWord = props.dailyWord;
-    const setDailyWord = props.setDailyWord;
     const hints = props.hints;
-    const setHints = props.setHints;
     const setComplete = props.setComplete;
     const setFailed = props.setFailed;
-
     const [guess, setGuess] = React.useState('');
-    const [selectedLanguage, setSelectedLanguage] = React.useState("");
-    const [translatedWord, setTranslatedWord] = React.useState("Select a language");
+    const selectedLanguage = props.selectedLanguage;
+    const setSelectedLanguage = props.setSelectedLanguage;
+    const translatedWord = props.translatedWord;
+    const setTranslatedWord = props.setTranslatedWord;
     const [guessesRemaining, setGuessesRemaining] = React.useState(3);
     const xsArray = Array.from({ length: guessesRemaining }, (_, index) => index);
-    // const [hints, setHints] = React.useState(["This is hint 1", "This is hint 2"]);
     const [openHints, setOpenHints] = React.useState(false);
     const toast = useToast();
     const handleShowHint = () => {
@@ -71,7 +64,7 @@ const Attempting = (props) => {
                 return;
             }
 
-            if (guess === dailyWord) {
+            if (guess.toLowerCase() === dailyWord.toLowerCase()) {
                 console.log("Correct guess");
                 setComplete(true);
             } else {
@@ -139,12 +132,16 @@ const Attempting = (props) => {
                 <ModalCloseButton />
                 <ModalBody className='instructions-body'>
                     {hints.map((hint, index) => {
-                        return (
-                        <React.Fragment key={index}>
-                            <p>{index + 1}. {hint}</p>
-                            <br/>
-                        </React.Fragment>
-                        );
+                        if (index < 3 - guessesRemaining) {
+                            return (
+                            <React.Fragment key={index}>
+                                <p>{index + 1}. {hint}</p>
+                                <br/>
+                            </React.Fragment>
+                            );
+                        } else {
+                            return (<></>);
+                        }
                     })}
                 </ModalBody>
                 <ModalFooter>

@@ -25,7 +25,8 @@ const Success = (props) => {
         'Секоја чест',
         'Gratulerer',
         'مبارک شه',
-    ]
+    ];
+    const dailyWord = props.dailyWord;
     return (
         <React.Fragment>
             <VStack
@@ -47,6 +48,9 @@ const Success = (props) => {
                         );
                     })}
                 </SimpleGrid>
+                <Box className="timer">
+                    Well done! The daily word was "{dailyWord}"
+                </Box>
                 <Timer/>
             </VStack>
         </React.Fragment>

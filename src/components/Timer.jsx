@@ -2,7 +2,7 @@ import React from "react";
 import { VStack, Box } from "@chakra-ui/react";
 
 const Timer = () => {
-    const [timeUntilNextDay, setTimeUntilNextDay] = React.useState({ hours: 0, minutes: 0, seconds: 0 });
+    const [timeUntilNextDay, setTimeUntilNextDay] = React.useState({ hours: "-", minutes: "-", seconds: "-" });
 
     React.useEffect(() => {
         const timerInterval = setInterval(() => {
@@ -18,10 +18,8 @@ const Timer = () => {
             const seconds = Math.floor((timeDifferenceMilliseconds % (1000 * 60)) / 1000);
             setTimeUntilNextDay({ hours, minutes, seconds });
         }, 1000);
-
         // Cleanup function to clear the interval
         return () => clearInterval(timerInterval);
-
     }, []);
 
     return (
