@@ -48,6 +48,7 @@
 }
 
 .body {
+  padding-bottom: 10px;
   height: calc(100vh - 130px);
 }
 
@@ -64,4 +65,23 @@
 .instructions-body {
   font-family: "VT323";
   font-size: 15pt;
+}
+
+.translated-word {
+  font-family: "JetBrains Mono";
+  font-size: 50pt;
+  text-align: center;
+  font-weight: 700;
+}
+
+.success-background {
+  font-family: "JetBrains Mono";
+  font-size: 25pt;
+  text-align: center;
+}
+
+.timer {
+  padding-top: 10px;
+  font-family: "VT323";
+  font-size: 20pt;
 }
