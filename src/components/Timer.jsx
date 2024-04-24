@@ -10,7 +10,11 @@ const Timer = () => {
             const midnightUTC = new Date(currentTimeUTC);
             midnightUTC.setUTCHours(14, 0, 0, 0); // Set the time to midnight UTC
 
-            const timeDifferenceMilliseconds = midnightUTC.getTime() - currentTimeUTC.getTime(); // Calculate the time difference in milliseconds
+            var timeDifferenceMilliseconds = midnightUTC.getTime() - currentTimeUTC.getTime(); // Calculate the time difference in milliseconds
+            if (timeDifferenceMilliseconds < 0) {
+                midnightUTC.setDate(midnightUTC.getDate() + 1);
+                timeDifferenceMilliseconds = midnightUTC.getTime() - currentTimeUTC.getTime(); // Calculate the time difference in milliseconds
+            }
 
             // Convert milliseconds to hours, minutes, and seconds
             const hours = Math.floor(timeDifferenceMilliseconds / (1000 * 60 * 60));

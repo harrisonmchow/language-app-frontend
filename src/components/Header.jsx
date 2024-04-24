@@ -70,6 +70,7 @@ const Header = () => {
                         <p>Inspired by continuous learning and trending NY Times games, we decided to provide a daily challenge that passionate linguists can complete in their day to day life.</p>
                         <br />
                         <p style={{ fontSize: "12pt" }}>Developed by Harry and Caleb</p>
+                        <p style={{ fontSize: "12pt" }}>Send your feedback to harrisonmchow@gmail.com</p>
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={() => setAboutOpen(false)}>Au revoir</Button>
