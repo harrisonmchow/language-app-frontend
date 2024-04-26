@@ -15,7 +15,7 @@ const Body = () => {
     React.useEffect(() => {
         const fetchData = async () => {
             // Make an api call to get the daily word and its hints
-            console.log("Making API CALL");
+            // console.log("Making API CALL");
             const url = process.env.REACT_APP_BACKEND_URL;
             try {
                 const response = await axios.get(`${url}/dailyword`);
