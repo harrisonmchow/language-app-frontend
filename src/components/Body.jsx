@@ -9,11 +9,7 @@ const Body = () => {
     const [failed, setFailed] = React.useState(false);
     const [dailyWord, setDailyWord] = React.useState("testing");
     const [hints, setHints] = React.useState(["This is hint 1", "This is hint 2"]);
-    const [translations, setTranslations] = React.useState({
-        Afrikaans: "Bomboclaat",
-        French: "Bonjour",
-        Italian: "Si Senor"
-    });
+    const [translations, setTranslations] = React.useState({});
     const [selectedLanguage, setSelectedLanguage] = React.useState("");
     const [translatedWord, setTranslatedWord] = React.useState("Select a language");
     React.useEffect(() => {
