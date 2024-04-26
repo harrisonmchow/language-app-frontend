@@ -1,21 +1,22 @@
 import React from "react";
 import { SimpleGrid, Box, VStack } from "@chakra-ui/react";
 import Timer from "./Timer";
+import { useBreakpointValue } from "@chakra-ui/react";
 
 const Success = (props) => {
     const congratulationsTranslated = [
         '恭喜你',
         'Felicitazioni',
-        'Gratulon',
+        // 'Gratulon',
         'Glückwunsch',
         'Συγχαρητήρια',
-        'Ina taya ku murna',
+        // 'Ina taya ku murna',
         'Gratulálunk',
         'Til hamingju',
         'Comhghairdeachas',
         'おめでとう',
         'Congratulations',
-        'Sugeng',
+        // 'Sugeng',
         'परबीं',
         '축하해요',
         'Congratulazioni',
@@ -27,6 +28,7 @@ const Success = (props) => {
         'مبارک شه',
     ];
     const dailyWord = props.dailyWord;
+    const columns = useBreakpointValue({ base: '2', md: '3' });
     return (
         <React.Fragment>
             <VStack
@@ -35,7 +37,7 @@ const Success = (props) => {
                 justify='space-between'
                 className="body"
             >
-                <SimpleGrid columns={3} style={{ paddingTop: '35px' }}>
+                <SimpleGrid columns={columns} style={{ paddingTop: '35px' }} spacing={2}>
                     {congratulationsTranslated.map((translation, index) => {
                         let weight;
                         if (index % 2 === 0) {

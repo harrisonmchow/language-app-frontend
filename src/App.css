@@ -30,18 +30,118 @@
   src: url('./assets/VT323-Regular.ttf') format('truetype');
 }
 
-.header-title {
-  font-family: "Monofett-Regular";
-  font-size: 60pt;
-  text-align: center;
+@media screen and (max-width: 767px) {
+  .header-title {
+    font-family: "Monofett-Regular";
+    font-size: 24pt;
+    text-align: center;
+  }
+  .subheading-text {
+    font-family: "JetBrains Mono";
+    font-size: 10pt;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  .align-with-title {
+    margin-top: 15px;
+  }
+
+  .instructions-header {
+    font-family: "VT323";
+    font-size: 30pt;
+    text-align: center;
+  }
+  
+  .instructions-body {
+    font-family: "VT323";
+    font-size: 10pt;
+  }
+  .translated-word {
+    font-family: "JetBrains Mono";
+    font-size: 25pt;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .success-background {
+    font-family: "JetBrains Mono";
+    font-size: 12pt;
+    text-align: center;
+  }
+  .timer {
+    padding-top: 10px;
+    font-family: "VT323";
+    font-size: 12pt;
+  }
 }
 
-.subheading-text {
-  font-family: "JetBrains Mono";
-  font-size: 12pt;
-  font-weight: 100;
-  text-align: center;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .success-background {
+    font-family: "JetBrains Mono";
+    font-size: 18pt;
+    text-align: center;
+  }
+  .timer {
+    padding-top: 10px;
+    font-family: "VT323";
+    font-size: 15pt;
+  }
 }
+
+
+@media screen and (min-width: 768px) {
+  /* Styles for extra large devices */
+  .header-title {
+    font-family: "Monofett-Regular";
+    font-size: 60pt;
+    text-align: center;
+  }
+  
+  .subheading-text {
+    font-family: "JetBrains Mono";
+    font-size: 12pt;
+    font-weight: 100;
+    text-align: center;
+  }
+  
+  .align-with-title {
+    margin-top: 45px;
+  }
+
+  .instructions-header {
+    font-family: "VT323";
+    font-size: 40pt;
+    text-align: center;
+  }
+  
+  .instructions-body {
+    font-family: "VT323";
+    font-size: 15pt;
+  }
+
+  .translated-word {
+    font-family: "JetBrains Mono";
+    font-size: 50pt;
+    text-align: center;
+    font-weight: 700;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .success-background {
+    font-family: "JetBrains Mono";
+    font-size: 25pt;
+    text-align: center;
+  }
+  .timer {
+    padding-top: 10px;
+    font-family: "VT323";
+    font-size: 20pt;
+  }
+}
+
 
 .test {
   background-color: blue;
@@ -50,40 +150,6 @@
 .body {
   padding-bottom: 10px;
   height: calc(100vh - 130px);
-}
-
-.align-with-title {
-  margin-top: 45px;
-}
-
-.instructions-header {
-  font-family: "VT323";
-  font-size: 40pt;
-  text-align: center;
-}
-
-.instructions-body {
-  font-family: "VT323";
-  font-size: 15pt;
-}
-
-.translated-word {
-  font-family: "JetBrains Mono";
-  font-size: 50pt;
-  text-align: center;
-  font-weight: 700;
-}
-
-.success-background {
-  font-family: "JetBrains Mono";
-  font-size: 25pt;
-  text-align: center;
-}
-
-.timer {
-  padding-top: 10px;
-  font-family: "VT323";
-  font-size: 20pt;
 }
 
 .wrong-answer {
