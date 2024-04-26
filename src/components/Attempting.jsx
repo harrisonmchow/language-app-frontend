@@ -32,14 +32,14 @@ const Attempting = (props) => {
     }
 
     const changeLanguage = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         setSelectedLanguage(event.target.value);
         if (event.target.value === "") {
             setTranslatedWord("Select a language");    
         } else {
             setTranslatedWord(translations[event.target.value]);
         }
-        console.log("Changed language");
+        // console.log("Changed language");
     }
 
     const handleGuess = (event) => {
@@ -109,8 +109,8 @@ const Attempting = (props) => {
                                 Remaining Guesses:
                             </Box>
                             {/* Map over xsArray and render an 'X' for each item */}
-                            {xsArray.map((item) => (
-                                <Box key={item}><SmallCloseIcon color={'red'}/></Box>
+                            {xsArray.map((item, index) => (
+                                <Box key={index}><SmallCloseIcon color={'red'}/></Box>
                             ))}
                         </HStack>
                         <Box>
@@ -134,13 +134,13 @@ const Attempting = (props) => {
                     {hints.map((hint, index) => {
                         if (index < 3 - guessesRemaining) {
                             return (
-                            <React.Fragment key={index}>
+                            <React.Fragment key={hint}>
                                 <p>{index + 1}. {hint}</p>
                                 <br/>
                             </React.Fragment>
                             );
                         } else {
-                            return (<></>);
+                            return (<span key={index}></span>);
                         }
                     })}
                 </ModalBody>
