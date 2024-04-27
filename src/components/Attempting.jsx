@@ -64,7 +64,7 @@ const Attempting = (props) => {
                 return;
             }
 
-            if (guess.toLowerCase() === dailyWord.toLowerCase()) {
+            if (guess.toLowerCase().trim() === dailyWord.toLowerCase()) {
                 console.log("Correct guess");
                 setComplete(true);
             } else {
