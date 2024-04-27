@@ -38,7 +38,7 @@ const Body = () => {
             translatedWord={translatedWord} setTranslatedWord={setTranslatedWord}/>
             : (failed ? <Failed dailyWord={dailyWord} selectedLanguage={selectedLanguage} setSelectedLanguage={setSelectedLanguage}
                 translatedWord={translatedWord} setTranslatedWord={setTranslatedWord} translations={translations}/>
-                : <Success dailyWord={dailyWord}/>)}
+                : <Success dailyWord={dailyWord} translations={translations}/>)}
         </React.Fragment>
     );
 }

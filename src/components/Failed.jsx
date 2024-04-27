@@ -1,6 +1,7 @@
 import React from "react";
 import { VStack, Box, Select } from "@chakra-ui/react";
 import Timer from "./Timer";
+import he from 'he';
 
 const Failed = (props) => {
     const translations = props.translations;
@@ -16,7 +17,7 @@ const Failed = (props) => {
         if (event.target.value === "") {
             setTranslatedWord("Select a language");
         } else {
-            setTranslatedWord(translations[event.target.value]);
+            setTranslatedWord(he.decode(translations[event.target.value]));
         }
         console.log("Changed language");
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import he from 'he';
 import { Select, VStack, HStack, Box, Input, IconButton, InputGroup, InputRightElement, Button } from '@chakra-ui/react';
 import {
     Modal,
@@ -37,7 +38,7 @@ const Attempting = (props) => {
         if (event.target.value === "") {
             setTranslatedWord("Select a language");    
         } else {
-            setTranslatedWord(translations[event.target.value]);
+            setTranslatedWord(he.decode(translations[event.target.value]));
         }
         // console.log("Changed language");
     }
