@@ -9,7 +9,7 @@ import {
     ModalBody,
     ModalCloseButton,
 } from '@chakra-ui/react'
-import { QuestionOutlineIcon, SmallCloseIcon } from "@chakra-ui/icons";
+import { QuestionOutlineIcon, SmallCloseIcon, Search2Icon } from "@chakra-ui/icons";
 import { useToast } from '@chakra-ui/react'
 
 
@@ -45,39 +45,44 @@ const Attempting = (props) => {
 
     const handleGuess = (event) => {
         if (event.key === 'Enter') {
-            if (selectedLanguage === "") {
-                toast({
-                    title: 'Error',
-                    description: "Select a language before guessing",
-                    status: 'error',
-                    duration: 2000,
-                    isClosable: true,
-                  })
-                return;
-            } else if (guess === "") {
-                toast({
-                    title: 'Error',
-                    description: "Invalid guess",
-                    status: 'error',
-                    duration: 2000,
-                    isClosable: true,
-                  })
-                return;
-            }
-
-            if (guess.toLowerCase().trim() === dailyWord.toLowerCase()) {
-                console.log("Correct guess");
-                setComplete(true);
-            } else {
-                if (guessesRemaining === 1) {
-                    console.log("NO MORE GUESSES");
-                    setFailed(true);
-                }
-                setGuessesRemaining(guessesRemaining - 1);
-            }
-            setGuess('');
+            submitAnswer();
         }
     }
+
+    const submitAnswer = () => {
+        if (selectedLanguage === "") {
+            toast({
+                title: 'Error',
+                description: "Select a language before guessing",
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+              })
+            return;
+        } else if (guess === "") {
+            toast({
+                title: 'Error',
+                description: "Guess cannot be empty",
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+              })
+            return;
+        }
+
+        if (guess.toLowerCase().trim() === dailyWord.toLowerCase()) {
+            console.log("Correct guess");
+            setComplete(true);
+        } else {
+            if (guessesRemaining === 1) {
+                console.log("NO MORE GUESSES");
+                setFailed(true);
+            }
+            setGuessesRemaining(guessesRemaining - 1);
+        }
+        setGuess('');
+    }
+
     return (
         <React.Fragment>
             <VStack
@@ -114,14 +119,17 @@ const Attempting = (props) => {
                                 <Box key={index}><SmallCloseIcon color={'red'}/></Box>
                             ))}
                         </HStack>
-                        <Box>
-                            <InputGroup size='lg'>
-                                <Input placeholder='Enter guess' onKeyDown={handleGuess} value={guess} onChange={(event) => setGuess(event.target.value)} style={{ width: '250px' }}/>
-                                {guessesRemaining !== 3 ? <InputRightElement>
-                                    <IconButton aria-label='Look at hint' isRound icon={<QuestionOutlineIcon color='white'/>} size='md' colorScheme='yellow' onClick={handleShowHint}/>
-                                </InputRightElement> : <></>}
-                            </InputGroup>
-                        </Box>
+                        <HStack spacing={1}>
+                            <Box>
+                                <InputGroup size='lg'>
+                                    <Input placeholder='Enter guess' onKeyDown={handleGuess} value={guess} onChange={(event) => setGuess(event.target.value)} style={{ width: '250px' }}/>
+                                    {guessesRemaining !== 3 ? <InputRightElement>
+                                        <IconButton aria-label='Look at hint' isRound icon={<QuestionOutlineIcon color='white'/>} size='md' colorScheme='yellow' onClick={handleShowHint}/>
+                                    </InputRightElement> : <></>}
+                                </InputGroup>
+                            </Box>
+                            <IconButton aria-label='Submit answer' icon={<Search2Icon color='white'/>} size='lg' colorScheme='blackAlpha' onClick={submitAnswer}/>
+                        </HStack>
                     </VStack>
                 </Box>
             </VStack>
